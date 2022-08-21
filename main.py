@@ -101,7 +101,27 @@ def deposit() -> None:
 
 
 def transfer() -> None:
-    pass
+    if len(accounts) > 0:
+        sender_account_number: int = int(input('Insert your account number: '))
+
+        sender_account: Account = search_account_by_number(sender_account_number)
+
+        if sender_account:
+            recipient_account_number: int = int(input("Insert the recipient account's number: "))
+
+            recipient_account: Account = search_account_by_number(recipient_account_number)
+
+            if recipient_account:
+                amount: float = float(input('Insert the amount you want to transfer: '))
+                sender_account.transfer(recipient_account, amount)
+            else:
+                print(f"We couldn't find any account with {recipient_account_number}")
+        else:
+            print(f"We couldn't find any account with {sender_account_number}")
+    else:
+        print('No accounts registered!')
+    sleep(2)
+    menu()
 
 
 def list_accounts() -> None:
