@@ -70,9 +70,9 @@ class Account:
                 self.limit = self.limit + remaining
                 self.balance = 0
                 self.total = self.calculate_total_balance
-                print(f'You with withdrew £ {amount}')
+            print(f'You withdrew £ {amount:.2f}')
         else:
-            print(f"You can't withdraw {amount}!")
+            print(f"You can't withdraw {amount:.2f}!")
 
     def transfer(self: object, recipient: object, amount: float) -> None:
         if self.total >= amount > 0:
@@ -88,6 +88,6 @@ class Account:
                 self.total = self.calculate_total_balance
                 recipient.balance += amount
                 recipient.total = recipient.calculate_total_balance
-            print(f'You transfered £ {amount} to {recipient.client.name}!')
+            print(f'You transfered £ {amount:.2f} to {recipient.client.name}!')
         else:
             print("We couldn't transfer to the recipient. Try again later...")
