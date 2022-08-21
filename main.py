@@ -12,7 +12,38 @@ def main() -> None:
 
 
 def menu() -> None:
-    pass
+    print("====================================")
+    print("==============   ATM  ==============")
+    print("====================================")
+
+    print('Select an option: ')
+    print('1 - Create Account')
+    print('2 - Withdrawal')
+    print('3 - Deposit')
+    print('4 - Transfer')
+    print('5 - List Accounts')
+    print('6 - Exit')
+
+    option: int = int(input())
+
+    if option == 1:
+        create_account()
+    elif option == 2:
+        withdrawal()
+    elif option == 3:
+        deposit()
+    elif option == 4:
+        transfer()
+    elif option == 5:
+        list_accounts()
+    elif option == 6:
+        print('See you!')
+        sleep(2)
+        exit(0)
+    else:
+        print('Error: Select a valid option!')
+        sleep(2)
+        menu()
 
 
 def create_account() -> None:
