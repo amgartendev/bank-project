@@ -125,7 +125,17 @@ def transfer() -> None:
 
 
 def list_accounts() -> None:
-    pass
+    if len(accounts) > 0:
+        print('======== Accounts List ========')
+
+        for account in accounts:
+            print(account)
+            print('---------')
+            sleep(.5)
+    else:
+        print('No accounts registered!')
+    sleep(2)
+    menu()
 
 
 def search_account_by_number(number: int) -> Account:
