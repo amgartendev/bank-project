@@ -47,7 +47,23 @@ def menu() -> None:
 
 
 def create_account() -> None:
-    pass
+    print("Insert the client's informations: ")
+
+    name: str = input('Name: ')
+    email: str = input('Email: ')
+    id_card: str = input('ID Card: ')
+    birth_date: str = input('Birth Date: ')
+
+    client: Client = Client(name, email, id_card, birth_date)
+    account: Account = Account(client)
+    accounts.append(account)
+
+    print('Account created successfully!')
+    print('Account informations: ')
+    print('------------------------')
+    print(account)
+    sleep(2)
+    menu()
 
 
 def withdrawal() -> None:
