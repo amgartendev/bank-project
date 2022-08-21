@@ -41,6 +41,10 @@ class Account:
     def total(self: object) -> float:
         return self.__total
 
+    @total.setter
+    def total(self: object, amount: float) -> None:
+        self.__total = amount
+
     @property
     def calculate_total_balance(self: object) -> float:
         return self.balance + self.limit
@@ -49,7 +53,12 @@ class Account:
         return f'ID: {self.id}\nClient: {self.client.name}\nTotal Balance: {format_float_str(self.total)}'
 
     def deposit(self: object, amount: float) -> None:
-        pass
+        if amount > 0:
+            self.balance = self.balance + amount
+            self.total = self.calculate_total_balance
+            print(f'You deposited £ {amount:.2f} to your account!')
+        else:
+            print('Error: Insert a valid amount to deposit!')
 
     def withdraw(self: object, amount: float) -> None:
         pass
