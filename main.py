@@ -84,7 +84,20 @@ def withdrawal() -> None:
 
 
 def deposit() -> None:
-    pass
+    if len(accounts) > 0:
+        account_number: int = int(input('Insert your account number: '))
+
+        account: Account = search_account_by_number(account_number)
+
+        if account:
+            amount: float = float(input('Insert the amount you want to deposit: '))
+            account.deposit(amount)
+        else:
+            print(f"We couldn't find any account with {account_number}")
+    else:
+        print('No accounts registered!')
+    sleep(2)
+    menu()
 
 
 def transfer() -> None:
