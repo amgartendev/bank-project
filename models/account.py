@@ -61,7 +61,18 @@ class Account:
             print('Error: Insert a valid amount to deposit!')
 
     def withdraw(self: object, amount: float) -> None:
-        pass
+        if self.total >= amount > 0:
+            if self.balance >= amount:
+                self.balance -= amount
+                self.total = self.calculate_total_balance
+            else:
+                remaining: float = self.balance - amount
+                self.limit = self.limit + remaining
+                self.balance = 0
+                self.total = self.calculate_total_balance
+                print(f'You with withdrew £ {amount}')
+        else:
+            print(f"You can't withdraw {amount}!")
 
     def transfer(self: object, recipient: object, amount: float) -> None:
         pass
