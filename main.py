@@ -139,7 +139,13 @@ def list_accounts() -> None:
 
 
 def search_account_by_number(number: int) -> Account:
-    pass
+    acc: Account = None
+
+    if len(accounts) > 0:
+        for account in accounts:
+            if account.id == number:
+                acc = account
+    return acc
 
 
 if __name__ == '__main__':
